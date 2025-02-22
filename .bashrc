@@ -85,5 +85,5 @@ set_exit_status() {
 PROMPT_COMMAND=set_exit_status
 
 # At the end of ~/.bashrc
-~/ravelights/motd.sh
+~/motd.sh
 
