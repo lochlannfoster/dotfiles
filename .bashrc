@@ -47,6 +47,7 @@ _NOUNDLINE=$(tput rmul)
 # Define additional vibrant colours for our prompt
 _VIVID_PINK=$(tput setaf 213)
 _VIVID_ORANGE=$(tput setaf 208)
+_VIVID_YELLOW=$(tput setaf 226)
 
 export PS1="\
 \[${_BOLD}${_WHITE}\]>"\
@@ -57,8 +58,8 @@ export PS1="\
 "\[${_NOUNDLINE}${_BOLD}${_WHITE}\]]"\
 "\[${_VIVID_ORANGE}\](\@)"\
 "\[${_BOLD}${_WHITE}\]:"\
-"\[${_CYAN}\]\w"\
-" \$(parse_git_branch)"\
+"\[${_CYAN}\]\w "\
+"\[${_BOLD}${_VIVID_YELLOW}\]\$(parse_git_branch) "\
 "\[${_BOLD}${_WHITE}\]\$"\
 "\[${_RESET}\] "
 
