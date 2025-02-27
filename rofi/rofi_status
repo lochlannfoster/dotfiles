@@ -1,0 +1,22 @@
+#!/bin/bash
+# rofi_status.sh
+# Launch rofi in dmenu mode, capture the input, update a status file for i3blocks,
+# and execute the command if provided.
+#
+# Note: This script uses a freeform input approach. If you type a valid command 
+# (e.g. "firefox"), it will attempt to run it in the background.
+
+# Launch rofi and capture the user's selection.
+selection=$(rofi -dmenu -p "Run:")
+
+# Update the status file for i3blocks.
+STATUS_FILE="$HOME/.config/i3blocks/rofi_status.txt"
+if [ -z "$selection" ]; then
+    echo "Rofi: [none]" > "$STATUS_FILE"
+else
+    echo "Rofi: $selection" > "$STATUS_FILE"
+    # Execute the command in the background.
+    # Using 'eval' so that commands with arguments are handled.
+    eval "$selection" &
+fi
+
